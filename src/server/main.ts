@@ -1,13 +1,15 @@
 import * as express from 'express';
 
-const argv = require('minimist')(process.argv.slice(2));
+import { viewRenderer } from './render';
 
+const argv = require('minimist')(process.argv.slice(2));
 const app = express();
 
 
-app.get('/', function(req, res){
-    res.send(200, 'Im healthy');
-})
+
+app.use(viewRenderer());
+
+
 
 
 
