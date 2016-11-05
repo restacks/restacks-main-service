@@ -3,7 +3,14 @@ import Repository from './repository';
 
 const Query = `
     type Query { 
-        repositories: [Repository]
+        getRepositoriesByPage(
+            page: Int
+            pageSize: Int
+        ): Repositories
+
+        getRepositoryById(
+            id: Int!
+        ): Repository
     }
 `
 
@@ -22,4 +29,11 @@ const Schema = `
     }
 `
 
-export default [Schema, Repository, Query, Mutation];
+const Common = `
+    type Paging {
+        page: Int
+        pageSize: Int
+    }
+`
+
+export default [Schema, Query, Mutation, Common, Repository];

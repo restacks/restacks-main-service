@@ -28,5 +28,6 @@ const options = {
 
 
 function doRefreshCacheRepositoryData() {
-    const repo = new Repository();
+    // TODO: cache data here
+    const repo = new Repository({});
 }

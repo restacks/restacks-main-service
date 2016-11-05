@@ -1,4 +1,11 @@
 import RepositoryResolvers from './repository';
+import { merge } from 'lodash';
 
 
-export default Object.assign({}, RepositoryResolvers);
+const rootResolvers = merge(RepositoryResolvers, {
+    Paging: () => {
+        
+    }
+})
+
+export default rootResolvers;

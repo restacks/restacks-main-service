@@ -1,0 +1,8 @@
+
+declare type RepositoryType = {
+    id: number;
+    name: string;
+    star: number;
+    fork: number;
+    pull_request: number;
+}
