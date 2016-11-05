@@ -10,31 +10,13 @@ var ports = {
     server: argv.server || 7001
 }
 
-gulp.task('compile:server', function(){
-    const tsProject = ts.createProject('./tsconfig.json');
-    return gulp.src(['./src/**/*.ts*'], {base: './src'})
-        .pipe(tsProject())
-        .pipe(gulp.dest('./tmp'))
-})
 
 
 
-gulp.task('serve',['compile:server'], function () {
-    nodemon({
-        args: [`--port=${ports.server}`],
-        watch: [ 
-            'tmp/server/main.js',
-        ],
-        execMap: {
-            js: 'node --harmony --nolazy',
-        },
-        script: 'tmp/server/main.js',
-        ext: 'ts tsx js html',
-    });
-    console.log('waiting for webpack bundle')
+gulp.task('serve', function () {
 
     new webpackDevServer(webpack(devConfig),devConfig.devServer).listen(ports.hmr ,function(){
         console.log('webpack server run at ' + (ports.hmr));
     });
-    gulp.watch(['./src/**/*.ts*'],['compile:server'])
+    
 });

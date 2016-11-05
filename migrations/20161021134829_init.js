@@ -1,5 +1,5 @@
-//@flow
-exports.up = function(knex: any, Promise: any) {
+
+exports.up = function(knex, Promise) {
   return Promise.all([
       knex.schema.createTable('repositories', function(table){
           table.increments('id').primary();
@@ -12,7 +12,7 @@ exports.up = function(knex: any, Promise: any) {
   ])
 };
 
-exports.down = function(knex: any, Promise: any) {
+exports.down = function(knex, Promise) {
   return Promise.all([
       knex.schema.dropTable('repositories'),
   ])

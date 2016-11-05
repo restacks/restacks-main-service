@@ -4,8 +4,9 @@
   "description": "This repository is provide graphQL service for entire stack",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon -r babel-register -r babel-polyfill ./src/server/index.js --debug=1621",
+    "start": "cross-env NODE_ENV=development nodemon -r babel-register -r babel-polyfill ./src/main.js --debug=1621",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "knex migrate:latest",
     "postinstall": "flow-typed install"
   },
   "repository": {
@@ -31,16 +32,22 @@
     "flow-typed": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
+    "html-webpack-plugin": "^2.24.1",
     "nodemon": "^1.11.0",
-    "npm-watch": "^0.1.6",
     "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "@google-cloud/bigquery": "^0.4.0",
     "babel-polyfill": "^6.16.0",
     "bookshelf": "^0.10.2",
+    "graphql": "^0.7.2",
+    "graphql-bookshelf": "0.0.8",
+    "graphql-server-hapi": "^0.4.3",
+    "graphql-tools": "^0.8.0",
     "hapi": "^15.2.0",
+    "history": "^4.4.0",
     "knex": "^0.12.6",
     "minimist": "^1.2.0",
     "react": "^15.3.2",
@@ -50,6 +57,10 @@
     "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
-    "redux-thunk": "^2.1.0"
+    "redux-logic": "^0.9.3",
+    "redux-thunk": "^2.1.0",
+    "routex": "^1.0.0-alpha.22",
+    "rxjs": "^5.0.0-rc.1",
+    "sqlite3": "^3.1.8"
   }
 }

@@ -40,3 +40,5 @@ jspm_packages
 knexfile.js
 dist/
 node_modules/
+flow-typed
+dev.sqlite3

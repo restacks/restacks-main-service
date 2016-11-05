@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var devConfig = require('./webpack.dev.config.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack for client
 var argv = require('minimist')(process.argv.slice(2));
 var ports = {
@@ -9,20 +10,21 @@ var ports = {
 
 module.exports = {
     entry: {
-        client: [
+        bundle: [
             'babel-polyfill',
             'webpack-dev-server/client?http://127.0.0.1:' + (ports.hmr),
             'webpack/hot/only-dev-server',
-            './tmp/client/App.js'
+            './src/App.jsx'
         ]
     },
     output: {
         libraryTarget: 'var',
-        path: '/dist',
-        publicPath: '/dist',
+        path: '/',
+        publicPath: '/',
         filename: '[name].js'
     },
     plugins: [
+        new HtmlWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
@@ -35,7 +37,7 @@ module.exports = {
     devtool: 'cheap-source-map',
     devServer: {
         contentBase: 'http://localhost:' + ports.hmr,
-        publicPath: '/dist/',
+        publicPath: '/',
         stats: 'normal',
         hot: true,
         proxy: {
@@ -43,6 +45,9 @@ module.exports = {
         },
         headers: { 'Access-Control-Allow-Origin': '*' },
         host: '127.0.0.1'
+    },
+    resolve:{
+        extensions: ['', '.js', '.jsx', '.json']
     },
     module: {
         loaders: [

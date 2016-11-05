@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "flow.path": "C:/Users/Rungsikorn/Documents/restacks-main-service/node_modules/flow-bin/flow-win64-v0.34.0/flow.exe",
-    "javascript.validate.enable":false
+    "flow.path": "/usr/local/lib/node_modules/flow-bin/flow-osx-v0.34.0/flow",
+    "javascript.validate.enable": false,
+    "typescript.tsdk": "./node_modules/typescript/lib"
 }

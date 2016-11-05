@@ -1,13 +1,7 @@
-function doing(...args) {
-    console.log('hi');
-}
-
-
 
 
 describe('test', function(){
-    it('work', function(done){
-        doing();
+    it('it work', function(done){
         done();
     })
 })
